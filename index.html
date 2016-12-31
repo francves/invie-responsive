@@ -125,25 +125,29 @@
 
 	var $burguerButton = document.getElementById('burguer-button');
 	var $menu = document.getElementById('menu');
-	function toggleMenu(){
-		$menu.classList.toggle('active')
-	};
+	// function toggleMenu(){
+	// 	$menu.classList.toggle('active')
+	// };
+	//-----------------
 	function showMenu(){
 		$menu.classList.add('active')
+		$burguerButton.classList.toggle('icon-cancel-circle')
 	};function hideMenu(){
 		$menu.classList.remove('active')
+		$burguerButton.classList.toggle('icon-cancel-circle')
 	};
 	function mediaQueryNueva(){
 		if(consulta.matches){
-			console.log("funcionaa");
+			// console.log("funcionaa");
 			$burguerButton.addEventListener('touchstart', toggleMenu);
 			function toggleMenu(){
 				$menu.classList.toggle('active')
+				$burguerButton.classList.toggle('icon-cancel-circle') //para mostrar el icono de close
 			}
 		}
 		else{
 			$burguerButton.removeEventListener('touchstart', toggleMenu);
-			console.log("bad");
+			// console.log("bad");
 		}
 	}
 	mediaQueryNueva()

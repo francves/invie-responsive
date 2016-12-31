@@ -121,23 +121,32 @@
 		</form>
 		</div>
 	</footer>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/blazy/1.8.2/blazy.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/blazy/1.8.2/blazy.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
 	<script type="text/javascript">
 	var consulta = window.matchMedia('(max-width: 500px');
 	consulta.addListener(mediaQueryNueva);
 
 	var $burguerButton = document.getElementById('burguer-button');
 	var $menu = document.getElementById('menu');
-	function toggleMenu(){
-		$menu.classList.toggle('active')
+	// function toggleMenu(){
+	// 	$menu.classList.toggle('active')
+	// };
+	//-----------------
+	function showMenu(){
+		$menu.classList.add('active')
+		$burguerButton.classList.toggle('icon-cancel-circle')
+	};function hideMenu(){
+		$menu.classList.remove('active')
+		$burguerButton.classList.toggle('icon-cancel-circle')
 	};
-
 	function mediaQueryNueva(){
 		if(consulta.matches){
 			console.log("funcionaa");
 			$burguerButton.addEventListener('touchstart', toggleMenu);
 			function toggleMenu(){
 				$menu.classList.toggle('active')
+				$burguerButton.classList.toggle('icon-cancel-circle') //para mostrar el icono de close
 			}
 		}
 		else{
@@ -150,7 +159,11 @@
 	var bLazy = new Blazy({
 		selector: 'img'
 	});
-	
+	//Gestos touch con hammerjs
+	var $body = document.body;
+	var gestos = new Hammer($body);
+gestos.on('swipeleft', hideMenu);
+gestos.on('swiperight', showMenu);
 	</script>
 </body>
 </html>

@@ -58,6 +58,7 @@ body{
 .background{
 	background-image: url('../images/background.png');
 	background-size: cover;
+	background-color: #29404E;
 }
 
 textarea{
@@ -295,7 +296,7 @@ table, td, th{
 	text-align: center;
 	position: fixed;
 	left: 20px;
-	top: 0;
+	top: 20px;
 	cursor: pointer;
 	z-index: 3;
 	display: none;
@@ -438,6 +439,9 @@ table, td, th{
 }
 
 @media screen and (max-width: 500px){
+	.portada button, .button{ 
+		width: 100%;
+	}
 	/*formulario*/
 	/*.col2{
 		display: block;
@@ -509,6 +513,7 @@ table, td, th{
 	/*guitarras*/
 	.header .contenedor, .header{
 		position: static;
+		color: white;
 	}
 }
 
